@@ -1,0 +1,22 @@
+
+html
+  head
+    link(rel="stylesheet" href="styles.css")
+    //- style(src="style.css")
+    script(src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous")
+  body
+    h1(class="message")= message
+    h2= json="JSON"
+    form(class="textSubmit" enctype="multipart/form-data")
+      textarea(class="submitText" name="text", cols="100", rows="20")
+      input(class="button" type="submit")
+    form(class="fileSubmit" enctype="mutipart/form-data")
+      input(class="file" type="file")
+      input(type="submit")
+    //- div(class="message")= message
+    h2= csv="CSV"
+    textarea(class="csvText" cols="100", rows="20")= text
+    button(class="downloadBtn")= "download"
+    script(src="app.js")
