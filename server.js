@@ -5,7 +5,6 @@ var upload = multer();
 var port = 3000;
 var bodyParser = require('body-parser');
 
-
 app.set('view engine', 'pug');
 app.use(require('morgan')('dev'));
 app.use(express.static('client'));
@@ -16,8 +15,13 @@ app.get('/', (req, res, next) => {
   res.render('index', {message: 'Choose a file or input into textbox'});
 });
 
+app.get('/test', (req, res) => {
+  res.send('hi');
+});
+
 app.post('/text', (req, res, next) => {
   var result;
+  console.log('body: ', req.body);
   console.log('csv: ', convertToCSV(req.body));
   try {
     res.send(convertToCSV(req.body));
@@ -37,10 +41,14 @@ app.post('/file', upload.single('file'), (req, res) => {
   }
 });
 
+
+
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
 });
 
+
+//help functions
 const oneLineOfCSV = (obj) => {
   var testStr = [];
   for (let key of Object.keys(obj)) {
