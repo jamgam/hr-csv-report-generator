@@ -31,22 +31,6 @@ $('.fileSubmit').submit('submit', function(e) {
   e.preventDefault();
   var formData = new FormData();
   formData.append('file', $('.file')[0].files[0] );
-
-  // $.ajax({
-  //   url: 'http://localhost:3000/file',
-  //   type: 'POST',
-  //   data: formData,
-  //   cache: false,
-  //   contentType: false,
-  //   processData: false,
-  //   success: function(data) {
-  //     if (Object.keys(data).length) {
-  //       $('.csvText').val(data);
-  //     } else {
-  // $('.message').html('ERROR: file must be in JSON format');
-  //     }
-  //   }
-  // });
   fetch('http://localhost:3000/file', {
     method: 'POST',
     body: formData,
